@@ -1,5 +1,5 @@
 {
-  "name": "web-ext",
+  "name": "web-ext-scw",
   "version": "6.1.0",
   "description": "A command line tool to help build, run, and test web extensions",
   "main": "dist/web-ext.js",
@@ -36,13 +36,13 @@
     "github-pr-title-lint": "node ./scripts/github-pr-title-lint",
     "gen-contributing-toc": "npx doctoc CONTRIBUTING.md"
   },
-  "homepage": "https://github.com/mozilla/web-ext",
+  "homepage": "https://github.com/CookieJarApps/web-ext",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mozilla/web-ext.git"
+    "url": "git://github.com/CookieJarApps/web-ext.git"
   },
   "bugs": {
-    "url": "http://github.com/mozilla/web-ext/issues"
+    "url": "http://github.com/CookieJarApps/web-ext/issues"
   },
   "keywords": [
     "web",
@@ -122,7 +122,7 @@
     "webpack-node-externals": "2.5.2",
     "yauzl": "2.10.0"
   },
-  "author": "Kumar McMillan",
+  "author": "CookieJarApps",
   "license": "MPL-2.0",
   "nyc": {
     "include": "src/**/*.js",
