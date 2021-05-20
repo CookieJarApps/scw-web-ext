@@ -1,6 +1,6 @@
 # Web-ext
 
-Mozilla's web-ext command line tool with added support for SmartCookieWeb Preview.
+Mozilla's web-ext command line tool with added support for SmartCookieWeb Preview and unnecessary code for desktop Firefox removed.
 
 ## Documentation
 
