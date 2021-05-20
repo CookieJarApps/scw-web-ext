@@ -7,8 +7,10 @@ export default [
   'org.mozilla.geckoview',
   'org.mozilla.firefox',
   'org.mozilla.reference.browser',
+  'com.cookiejarapps.android.smartcookieweb',
 ];
 
 export const defaultApkComponents = {
   'org.mozilla.reference.browser': '.BrowserActivity',
+  'com.cookiejarapps.android.smartcookieweb': '.BrowserActivity',
 };
