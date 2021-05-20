@@ -1,6 +1,6 @@
 {
   "name": "web-ext-scw",
-  "version": "6.1.0",
+  "version": "1.0.0",
   "description": "A command line tool to help build, run, and test web extensions",
   "main": "dist/web-ext.js",
   "exports": {
@@ -130,5 +130,8 @@
       "lcov",
       "text"
     ]
+  },
+  "directories": {
+    "test": "tests"
   }
 }
