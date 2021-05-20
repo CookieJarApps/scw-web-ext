@@ -1,6 +1,6 @@
-# Web-ext
+# Web-ext-scw
 
-Mozilla's web-ext command line tool with added support for SmartCookieWeb Preview and unnecessary code for desktop Firefox removed.
+Mozilla's web-ext command line tool with added support for SmartCookieWeb Preview and unnecessary code for desktop Firefox removed. Not endorsed by Mozilla in any way.
 
 ## Documentation
 
@@ -20,6 +20,46 @@ Here are the commands you can run. Click on each one for detailed documentation 
 * [`docs`](https://extensionworkshop.com/documentation/develop/web-ext-command-reference#web-ext-docs)
   * Open the `web-ext` documentation in a browser
 
+## Installation from npm
+
+First, make sure you are running the current
+[LTS](https://github.com/nodejs/LTS)
+(long term support) version of
+[NodeJS](https://nodejs.org/en/).
+
+### Global command
+
+You can install this command onto your machine globally with:
+
+    npm install --global web-ext-scw
+
+### For your project
+
+Alternatively, you can install this command as one of the
+[`devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies)
+of your project.  This method can help you control the version of `web-ext`
+as used by your team.
+
+    npm install --save-dev web-ext
+
+Next you can use the `web-ext` command in your project as an
+[npm script](https://docs.npmjs.com/misc/scripts).
+Here is an example where the `--source-dir` argument specifies where to find
+the source code for your extension.
+
+`package.json`
+```json
+"scripts": {
+  "start:firefox": "web-ext run --source-dir ./extension-dist/",
+}
+```
+
+You can always pass in additional commands to your npm scripts using
+the `--` suffix. For example, the previous script could specify the Firefox
+version on the command line with this:
+
+    npm run start:firefox -- --firefox=nightly
+
 ## Installation from source
 
 You'll need:
@@ -36,7 +76,7 @@ you may need to uninstall it first:
 
 Change into the source and install all dependencies:
 
-    git clone https://github.com/CookieJarApps/web-ext.git
+    git clone https://github.com/cookiejarapps/web-ext-scw.git
     cd web-ext
     npm install
 
@@ -140,3 +180,38 @@ webExt.cmd.run(
   },
 );
 ```
+
+
+## Should I Use It?
+
+Yes! The web-ext tool enables you to build and ship extensions for Firefox.
+This platform stabilized in
+[Firefox 48](https://blog.mozilla.org/addons/2016/04/29/webextensions-in-firefox-48/)
+which was released in April of 2016.
+
+## Get Involved
+
+Hi! This tool is under active development. To get involved you can watch the repo,
+file issues, create pull requests, or ask a question on
+[dev-addons](https://mail.mozilla.org/listinfo/dev-addons).
+Read the [contributing section](CONTRIBUTING.md) for how to develop new features.
+
+## Some Questions and Answers
+
+### Why do we need a command line tool?
+
+This is a great question and one that we will ask ourselves for each new web-ext
+feature. Most WebExtension functionality is baked into the browsers
+themselves but a complimentary command line tool will still be helpful.
+Here is a partial list of examples:
+
+* File watching.
+  * When you edit a file, you may need to trigger certain commands (tests,
+    installation, etc).
+* Integrating with services.
+  * Mozilla offers some useful services such as
+    [linting](https://github.com/mozilla/addons-linter) and
+    [signing](https://addons-server.readthedocs.io/en/latest/topics/api/signing.html)
+    extensions.
+
+[web-ext-user-docs]: https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext
