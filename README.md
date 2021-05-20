@@ -1,6 +1,6 @@
 # Web-ext-scw
 
-Mozilla's web-ext command line tool with added support for SmartCookieWeb Preview and unnecessary code for desktop Firefox removed. Not endorsed by Mozilla in any way.
+Mozilla's web-ext command line tool with added support for SmartCookieWeb Preview and unnecessary code for desktop Firefox removed. Not endorsed by Mozilla in any way. web-ext must (currently) be uninstalled for this tool to install correctly.
 
 ## Documentation
 
