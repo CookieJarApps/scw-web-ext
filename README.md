@@ -5,6 +5,8 @@ Mozilla's web-ext command line tool with added support for SmartCookieWeb Previe
 ## Documentation
 
 ### Test add-on
+ADB must be installed on your PC, USB Debugging must be enabled on your Android device, and if you're on SmartCookieWeb-Preview v7 or newer, remote debugging must be on in advanced settings.
+
 Run `scw-web-ext run --target=firefox-android` and find your Device ID.
 
 Then paste the ID into this command: `scw-web-ext run --target=firefox-android --android-device=<Device ID>`.
