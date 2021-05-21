@@ -1,24 +1,15 @@
 # scw-web-ext
 
-Mozilla's web-ext command line tool with added support for SmartCookieWeb Preview and unnecessary code for desktop Firefox removed. Not endorsed by Mozilla in any way. web-ext must (currently) be uninstalled for this tool to install correctly.
+Mozilla's web-ext command line tool with added support for SmartCookieWeb Preview and unnecessary code for desktop Firefox removed. Not endorsed by Mozilla in any way. Can be installed alongside web-ext.
 
 ## Documentation
 
-* [Getting started with web-ext][web-ext-user-docs]
-* [Command reference](https://extensionworkshop.com/documentation/develop/web-ext-command-reference)
+### Test add-on
+Run `scw-web-ext run --target=firefox-android` and find your Device ID.
 
-Here are the commands you can run. Click on each one for detailed documentation or use `--help` on the command line, such as `web-ext build --help`.
+Then paste the ID into this command: `scw-web-ext run --target=firefox-android --android-device=<Device ID>`.
 
-* [`run`](https://extensionworkshop.com/documentation/develop/web-ext-command-reference#web-ext-run)
-  * Run the extension
-* [`lint`](https://extensionworkshop.com/documentation/develop/web-ext-command-reference#web-ext-lint)
-  * Validate the extension source
-* [`sign`](https://extensionworkshop.com/documentation/develop/web-ext-command-reference#web-ext-sign)
-  * Sign the extension so it can be installed in Firefox
-* [`build`](https://extensionworkshop.com/documentation/develop/web-ext-command-reference#web-ext-build)
-  * Create an extension package from source
-* [`docs`](https://extensionworkshop.com/documentation/develop/web-ext-command-reference#web-ext-docs)
-  * Open the `web-ext` documentation in a browser
+Navigate to the directory your add-on's manifest.json is in and then run `scw-web-ext run --target=firefox-android --android-device=<Device ID> --firefox-apk=com.cookiejarapps.android.smartcookieweb`.
 
 ## Installation from npm
 
@@ -31,13 +22,13 @@ First, make sure you are running the current
 
 You can install this command onto your machine globally with:
 
-    npm install --global web-ext-scw
+    npm install --global scw-web-ext
 
 ### For your project
 
 Alternatively, you can install this command as one of the
 [`devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies)
-of your project.  This method can help you control the version of `web-ext`
+of your project.  This method can help you control the version of `scw-web-ext`
 as used by your team.
 
     npm install --save-dev web-ext
@@ -50,7 +41,7 @@ the source code for your extension.
 `package.json`
 ```json
 "scripts": {
-  "start:firefox": "web-ext run --source-dir ./extension-dist/",
+  "start:firefox": "scw-web-ext run --source-dir ./extension-dist/",
 }
 ```
 
@@ -69,15 +60,15 @@ You'll need:
 Optionally, you may like:
 * [nvm](https://github.com/creationix/nvm), which helps manage node versions
 
-If you had already installed `web-ext` from npm,
+If you had already installed `scw-web-ext` from npm,
 you may need to uninstall it first:
 
-    npm uninstall --global web-ext
+    npm uninstall --global scw-web-ext
 
 Change into the source and install all dependencies:
 
-    git clone https://github.com/cookiejarapps/web-ext-scw.git
-    cd web-ext
+    git clone https://github.com/cookiejarapps/scw-web-ext.git
+    cd scw-web-ext
     npm install
 
 Build the command:
@@ -101,14 +92,14 @@ need to relink it.
 
 ## Using web-ext in NodeJS code
 
-Aside from [using web-ext on the command line][web-ext-user-docs], you may wish to execute `web-ext` in NodeJS code. There is limited support for this. Here are some examples.
+Aside from [using web-ext on the command line][web-ext-user-docs], you may wish to execute `scw-web-ext` in NodeJS code. There is limited support for this. Here are some examples.
 
-You are able to execute command functions without any argument validation. If you want to execute `web-ext run` you would do so like this:
+You are able to execute command functions without any argument validation. If you want to execute `scw-web-ext run` you would do so like this:
 
 ```js
-// const webExt = require('web-ext');
+// const webExt = require('scw-web-ext');
 // or...
-import webExt from 'web-ext';
+import webExt from 'scw-web-ext';
 
 webExt.cmd.run({
   // These are command options derived from their CLI conterpart.
@@ -180,38 +171,3 @@ webExt.cmd.run(
   },
 );
 ```
-
-
-## Should I Use It?
-
-Yes! The web-ext tool enables you to build and ship extensions for Firefox.
-This platform stabilized in
-[Firefox 48](https://blog.mozilla.org/addons/2016/04/29/webextensions-in-firefox-48/)
-which was released in April of 2016.
-
-## Get Involved
-
-Hi! This tool is under active development. To get involved you can watch the repo,
-file issues, create pull requests, or ask a question on
-[dev-addons](https://mail.mozilla.org/listinfo/dev-addons).
-Read the [contributing section](CONTRIBUTING.md) for how to develop new features.
-
-## Some Questions and Answers
-
-### Why do we need a command line tool?
-
-This is a great question and one that we will ask ourselves for each new web-ext
-feature. Most WebExtension functionality is baked into the browsers
-themselves but a complimentary command line tool will still be helpful.
-Here is a partial list of examples:
-
-* File watching.
-  * When you edit a file, you may need to trigger certain commands (tests,
-    installation, etc).
-* Integrating with services.
-  * Mozilla offers some useful services such as
-    [linting](https://github.com/mozilla/addons-linter) and
-    [signing](https://addons-server.readthedocs.io/en/latest/topics/api/signing.html)
-    extensions.
-
-[web-ext-user-docs]: https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext
